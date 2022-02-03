@@ -15,8 +15,6 @@ def split_by_capitals(capital_string):
     return result.strip()
     
 def camelCasing(code):
-    # Write your code here
-    
     if code[0] == 'S':
         if code[1] in ['V', 'C']:
             #S;V;pictureFrame -> picture frame
@@ -28,7 +26,6 @@ def camelCasing(code):
             #S;M;plasticCup() -> plastic cup
             result_str = split_by_capitals(code[2])
             return result_str[:-2]
-            
         
     elif code[0] == 'C':
         if code[1] == 'V':
@@ -36,7 +33,7 @@ def camelCasing(code):
             strings = code[2].split(' ')
             result_str = strings[0]+ ''.join([s.capitalize() for s in strings[1:]])
             return result_str            
-        
+       
         elif code[1] == 'C':
             #C;C;coffee machine -> CoffeeMachine
             strings_arr = [s.capitalize() for s in code[2].split(' ')]
@@ -51,7 +48,6 @@ def camelCasing(code):
     return 'Format not supported'
 
 if __name__ == '__main__':
-    
     strings = sys.stdin.readlines()
     for code_line in strings:
         code = list(code_line.strip().split(';'))
